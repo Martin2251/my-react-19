@@ -2,11 +2,14 @@
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <main>
+      <div className="pattern"  />
+     <div className="wrapper">
+      <header>
+        <h1>Find movies your enjoy without the hassle</h1>
+      </header>
+     </div>
+    </main>
   )
 }
 
