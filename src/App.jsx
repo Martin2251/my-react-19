@@ -1,4 +1,4 @@
-
+import Search from "./components/Search"
 
 const App = () => {
   return (
@@ -6,9 +6,10 @@ const App = () => {
       <div className="pattern"  />
      <div className="wrapper">
       <header>
+        <img src="./hero.png" alt="Hero Banner"  />
         <h1>Find <span className="text-gradient">movies </span>your enjoy without the hassle</h1>
       </header>
-      <p>search</p>
+     <Search  />
      </div>
     </main>
   )
