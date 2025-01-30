@@ -1,8 +1,12 @@
 import Search from "./components/Search"
 import { useEffect, useState } from "react";
 
-const API_BASE_URL = 'https://api.moviedb.org/3';
+const API_BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+
+
+
 
 
 const API_OPTIONS = {
@@ -21,12 +25,16 @@ const App = () => {
 
   const fetchMovies = async () =>{
     try{
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by_popularity.desc`;
+      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      console.log(endpoint,"endpoint")
       const response = await fetch(endpoint, API_OPTIONS);
 
       if(!response.ok){
         throw new Error('Failed to fetch movies');
       }
+      const data = await response.json()
+      console.log(data,"data")
+      console.log(data);
 
     } catch (error){
       console.error(`Error fetching movies: ${error}`)
@@ -37,8 +45,8 @@ const App = () => {
 
   useEffect(() =>{
     fetchMovies();
-  })
-
+  },[]);
+ 
   return (
     <main>
       <div className="pattern"  />
