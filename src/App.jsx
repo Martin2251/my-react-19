@@ -38,6 +38,10 @@ const App = () => {
         <h1>Find <span className="text-gradient">movies </span>your enjoy without the hassle</h1>
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />
       </header>
+      <section>
+        <h2>all movies</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </section>
      
      </div>
     </main>
