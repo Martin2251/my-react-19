@@ -1,5 +1,5 @@
 import Search from "./components/Search"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const API_BASE_URL = 'https://api.moviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -21,6 +21,12 @@ const App = () => {
 
   const fetchMovies = async () =>{
     try{
+      const endpoint = `${API_BASE_URL}/discover/movie?sort_by_popularity.desc`;
+      const response = await fetch(endpoint, API_OPTIONS);
+
+      if(!response.ok){
+        throw new Error('Failed to fetch movies');
+      }
 
     } catch (error){
       console.error(`Error fetching movies: ${error}`)
@@ -28,6 +34,10 @@ const App = () => {
 
     }
   }
+
+  useEffect(() =>{
+    fetchMovies();
+  })
 
   return (
     <main>
@@ -40,7 +50,7 @@ const App = () => {
       </header>
       <section>
         <h2>all movies</h2>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && <p className="error-message text-red-500">{errorMessage}</p>}
       </section>
      
      </div>
