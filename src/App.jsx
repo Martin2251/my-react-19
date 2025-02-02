@@ -34,7 +34,7 @@ const App = () => {
       }
       const data = await response.json()
       console.log(data,"data")
-      console.log(data);
+
 
     } catch (error){
       console.error(`Error fetching movies: ${error}`)
@@ -56,7 +56,7 @@ const App = () => {
         <h1>Find <span className="text-gradient">movies </span>your enjoy without the hassle</h1>
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />
       </header>
-      <section>
+      <section className="all-movies">
         <h2>all movies</h2>
         {errorMessage && <p className="error-message text-red-500">{errorMessage}</p>}
       </section>
